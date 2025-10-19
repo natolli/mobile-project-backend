@@ -7,6 +7,14 @@ module.exports = {
     database: config.db.name,
     host: config.db.host,
     port: config.db.port,
+    ssl: true,
+    dialectOptions: {
+      // Add SSL options here if required for production
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
     dialect: "postgres",
   },
   test: {
@@ -16,6 +24,14 @@ module.exports = {
     host: config.db.host,
     port: config.db.port,
     dialect: "postgres",
+    ssl: true,
+    dialectOptions: {
+      // Add SSL options here if required for production
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
     logging: false,
   },
   production: {
@@ -25,12 +41,13 @@ module.exports = {
     host: config.db.host,
     port: config.db.port,
     dialect: "postgres",
+    ssl: true,
     dialectOptions: {
       // Add SSL options here if required for production
-      // ssl: {
-      //   require: true,
-      //   rejectUnauthorized: false
-      // }
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
     },
     logging: false,
   },

@@ -17,6 +17,9 @@ const envVarsSchema = Joi.object()
     DB_NAME: Joi.string().required().description("Database name"),
     JWT_SECRET: Joi.string().required().description("JWT secret key"),
     JWT_EXPIRES_IN: Joi.string().required().description("JWT expiration"),
+    GEMINI_API_KEY: Joi.string()
+      .required()
+      .description("Google Gemini API Key"), // <-- Added this line
   })
   .unknown();
 
@@ -41,5 +44,9 @@ module.exports = {
     user: envVars.DB_USER,
     password: envVars.DB_PASSWORD,
     name: envVars.DB_NAME,
+  },
+  gemini: {
+    // <-- Added this object
+    apiKey: envVars.GEMINI_API_KEY,
   },
 };
